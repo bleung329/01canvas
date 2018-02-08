@@ -1,14 +1,35 @@
+/*
+Brian Leung
+SoftDev PD 7 
+MyFirstAnimation
+*/
 var canvas = document.getElementById('slate')
 var ctx = canvas.getContext('2d')
 var animation
-var animation_running = 0
+
+//For the shrinking and growing circles
 var circleSize = 0
 var shrinking
 var growthSpeed = 10
 
-function draw()
+//For the dvd player
+var dvdX = 10
+var dvdY = 10
+
+var vector
 {
-	ctx.clearRect(0,0, canvas.width, canvas.height);
+	
+}
+
+function dvdPlayer()
+{
+	ctx.clearRect(0,0, canvas.width, canvas.height)
+	animation = window.requestAnimationFrame(dvdPlayer)
+}
+
+function growCircle()
+{
+	ctx.clearRect(0,0, canvas.width, canvas.height)
 	if (shrinking)
 	{
 		circleSize -= growthSpeed
@@ -25,11 +46,11 @@ function draw()
 	{
 		shrinking = 0
 	}
-	drawCircle(circleSize)
+	drawCircle(300,300,circleSize)
 	animation = window.requestAnimationFrame(draw)
 }
 
-function drawCircle(radius)
+function drawCircle(x,y,radius)
 {
 	ctx.beginPath();
     ctx.arc(300,300, radius, 0, Math.PI * 2);
@@ -46,5 +67,10 @@ document.getElementById('pause').onclick = function()
 {
 	window.cancelAnimationFrame(animation)
 }
+document.getElementById('dvdplayer').onclick = function()
+{
+	window.cancelAnimationFrame(animation)
+}
+
 
 draw()
