@@ -46,11 +46,7 @@ function dvdPlayer()
 	drawCircle(dvdX,dvdY,20,color)
 	dvdX += vector.x
 	dvdY += vector.y
-	/*
-	console.log("dvdX: "+dvdX)
-	console.log("dvdY: "+dvdY)
-	console.log(vector.x)
-	*/
+	
 	if (dvdX>=600 || dvdX<=0)
 	{
 		reflectSide()
@@ -112,4 +108,8 @@ document.getElementById('pause').onclick = function()
 	window.cancelAnimationFrame(animation)
 }
 
+
+logo.src = "dvd.jpg"
+var logo = new Image();
+logo.width = 
 growCircle()
