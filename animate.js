@@ -17,6 +17,8 @@ var growthSpeed = 10
 var dvdX = 10
 var dvdY = 10
 var color
+var logo = new Image();
+logo.src = "dvd.jpg"
 //Vector and the helper functions
 var vector = {x:2,y:3}
 
@@ -43,15 +45,16 @@ function getRandomColor() {
 function dvdPlayer()
 {
 	ctx.clearRect(0,0, canvas.width, canvas.height)
-	drawCircle(dvdX,dvdY,20,color)
+	//drawCircle(dvdX,dvdY,20,color)
+	ctx.drawImage(logo,0,0,600,400,dvdX,dvdY,150,100)
 	dvdX += vector.x
 	dvdY += vector.y
 	
-	if (dvdX>=600 || dvdX<=0)
+	if (dvdX>=450 || dvdX<=0)
 	{
 		reflectSide()
 	}
-	if (dvdY>=600 || dvdY<=0)
+	if (dvdY>=500 || dvdY<=0)
 	{
 		reflectVert()
 	}
@@ -109,7 +112,4 @@ document.getElementById('pause').onclick = function()
 }
 
 
-logo.src = "dvd.jpg"
-var logo = new Image();
-logo.width = 
 growCircle()
